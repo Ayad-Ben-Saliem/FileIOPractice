@@ -6,7 +6,12 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        //saveDemo();
+        readDemo();
+    }
 
+    public static void saveDemo(){
+        PersonSaver saver = new PersonSaver();
         File f = new File("People");
 
         Person p1 = new Person();
@@ -14,30 +19,22 @@ public class Main {
         Person p3 = new Person("Ahmed", 13);
         Person p4 = new Person(null, 10, "LY");
 
-        savePerson(p1, f);
-        savePerson(p2, f);
-        savePerson(p3, f);
-        savePerson(p4);
+        saver.savePerson(p1, f);
+        saver.savePerson(p2, f);
+        saver.savePerson(p3, f);
+        saver.savePerson(p4);
     }
 
-    public static void savePerson(Person p){
-        savePerson(p, new File("Demo"));
-    }
+    public static void readDemo(){
+        File f1 = new File("People");
 
-    public static void savePerson(Person p, File f){
+        PeopleReader reader = new PeopleReader();
+        Person[] persons = reader.readPeople(f1);
 
-        try {
-            FileWriter writer = new FileWriter(f, true);
-            String s = "\n" +
-                       "{\n" +
-                       "\tName = " + p.getName() + "\n" +
-                       "\tAge = "  + p.getAge()  + "\n" +
-                       "\tNat = "  + p.getNat()  + "\n" +
-                       "}\n";
-            writer.append(s);
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        for(Person person : persons){
+            System.out.println(person.getName());
         }
+
     }
+
 }

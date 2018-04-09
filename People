@@ -1,7 +1,7 @@
 
 
 {
-	Name = null
+	Name = Ahmed
 	Age = 0
 	Nat = null
 }
@@ -12,6 +12,9 @@
 	Age = 0
 	Nat = null
 }
+
+
+
 
 {
 	Name = Ahmed

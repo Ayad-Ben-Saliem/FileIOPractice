@@ -47,4 +47,15 @@ public class Person {
     public void setNat(String nat) {
         this.nat = nat;
     }
+
+    @Override
+    public String toString() {
+        return getInfo();
+    }
+
+    public String getInfo(){
+        return "Name = " + name + "\n" +
+               "Age  = " + age  + "\n" +
+               "Nat  = " + nat  + "\n";
+    }
 }
